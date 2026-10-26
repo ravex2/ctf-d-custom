@@ -21,8 +21,6 @@ services:
     depends_on:
       permissions:
         condition: service_completed_successfully
-      db:
-        condition: service_started
       cache:
         condition: service_started
     networks:
