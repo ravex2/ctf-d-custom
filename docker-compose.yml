@@ -67,4 +67,4 @@ services:
 networks:
     default:
     internal:
-        internal: true
+        internal: false
