@@ -1,0 +1,33 @@
+# Render Blueprint: CTFd single instance with persistent SQLite storage.
+# A persistent disk prevents horizontal scaling; this is intentional for a
+# small reversing CTF with one CTFd instance.
+services:
+  - type: web
+    name: ctfd-reversing
+    runtime: docker
+    region: virginia
+    plan: 0.5c-512mb
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:////opt/CTFd/.data/ctfd.db
+      - key: UPLOAD_FOLDER
+        value: /opt/CTFd/.data/uploads
+      - key: LOG_FOLDER
+        value: /opt/CTFd/.data/logs
+      - key: WORKERS
+        value: "1"
+      - key: ACCESS_LOG
+        value: "-"
+      - key: ERROR_LOG
+        value: "-"
+      - key: REVERSE_PROXY
+        value: "true"
+    disk:
+      name: ctfd-data
+      mountPath: /opt/CTFd/.data
+      sizeGB: 1
