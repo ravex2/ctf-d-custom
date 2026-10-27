@@ -1,6 +1,211 @@
 @import "~/codemirror/lib/codemirror.css";
 @import "includes/easymde.scss";
+
+/* --- CodeMirror / EasyMDE dark editor ------------------------------------- */
+
+.CodeMirror {
+  border-color: var(--hx-line);
+  background: var(--hx-panel);
+  color: var(--hx-text);
+  font-family: var(--hx-mono);
+}
+
 .CodeMirror.cm-s-default {
-  font-size: 12px;
-  border: 1px solid lightgray;
+  border: 1px solid var(--hx-line);
+}
+
+.CodeMirror.cm-s-easymde {
+  border: 1px solid var(--hx-line);
+  background: var(--hx-panel);
+  color: var(--hx-text);
+}
+
+.CodeMirror-gutters {
+  border-right: 1px solid var(--hx-line);
+  background: var(--hx-panel-2);
+}
+
+.CodeMirror-linenumber {
+  color: var(--hx-muted);
+}
+
+.CodeMirror-cursor {
+  border-left: 2px solid var(--hx-accent);
+}
+
+.CodeMirror-selected {
+  background: rgba(255, 176, 32, 0.18) !important;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+  background: rgba(255, 176, 32, 0.24) !important;
+}
+
+.CodeMirror-line::selection,
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection {
+  background: rgba(255, 176, 32, 0.24);
+}
+
+.CodeMirror-line::-moz-selection,
+.CodeMirror-line > span::-moz-selection,
+.CodeMirror-line > span > span::-moz-selection {
+  background: rgba(255, 176, 32, 0.24);
+}
+
+.CodeMirror-activeline-background {
+  background: var(--hx-panel-2);
+}
+
+.CodeMirror-matchingbracket {
+  border-bottom: 1px solid var(--hx-accent-2);
+  color: var(--hx-accent-2) !important;
+}
+
+.CodeMirror-nonmatchingbracket {
+  color: var(--hx-danger) !important;
+}
+
+.cm-s-easymde .cm-header,
+.cm-s-easymde .cm-header-1,
+.cm-s-easymde .cm-header-2,
+.cm-s-easymde .cm-header-3,
+.cm-s-easymde .cm-header-4,
+.cm-s-easymde .cm-header-5,
+.cm-s-easymde .cm-header-6 {
+  color: var(--hx-accent);
+}
+
+.cm-s-easymde .cm-quote {
+  color: var(--hx-muted);
+}
+
+.cm-s-easymde .cm-link,
+.cm-s-easymde .cm-url {
+  color: var(--hx-accent-2);
+}
+
+.cm-s-easymde .cm-string {
+  color: var(--hx-success);
+}
+
+.cm-s-easymde .cm-tag {
+  color: var(--hx-accent-2);
+}
+
+.cm-s-easymde .cm-attribute {
+  color: var(--hx-info);
+}
+
+.cm-s-easymde .cm-comment {
+  color: var(--hx-muted);
+}
+
+.cm-s-easymde .cm-keyword {
+  color: var(--hx-danger);
+}
+
+.cm-s-easymde .cm-number {
+  color: var(--hx-warning);
+}
+
+.cm-s-easymde .cm-variable,
+.cm-s-easymde .cm-variable-2,
+.cm-s-easymde .cm-variable-3 {
+  color: var(--hx-text);
+}
+
+.cm-s-easymde .cm-operator,
+.cm-s-easymde .cm-builtin {
+  color: var(--hx-accent);
+}
+
+.cm-s-easymde .cm-error {
+  color: var(--hx-danger);
+}
+
+/* EasyMDE toolbar + preview */
+.editor-toolbar {
+  border-color: var(--hx-line);
+  background: var(--hx-panel-2);
+  opacity: 1;
+}
+
+.editor-toolbar::before,
+.editor-toolbar::after {
+  background: var(--hx-line);
+}
+
+.editor-toolbar button {
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: var(--hx-text);
+}
+
+.editor-toolbar button:hover,
+.editor-toolbar button.active {
+  border-color: var(--hx-accent);
+  background: var(--hx-accent);
+  color: var(--hx-on-accent);
+}
+
+.editor-toolbar button.disabled,
+.editor-toolbar button:disabled {
+  color: var(--hx-muted);
+  opacity: 0.5;
+}
+
+.editor-toolbar i.separator {
+  border-left-color: var(--hx-line-strong);
+  border-right-color: transparent;
+}
+
+.editor-toolbar.fullscreen {
+  background: var(--hx-panel-2);
+}
+
+.editor-toolbar.fullscreen::before {
+  background: linear-gradient(to right, var(--hx-panel-2) 0%, transparent 100%);
+}
+
+.editor-toolbar.fullscreen::after {
+  background: linear-gradient(to left, var(--hx-panel-2) 0%, transparent 100%);
+}
+
+.editor-statusbar {
+  color: var(--hx-muted);
+  font-family: var(--hx-mono);
+  font-size: 0.72rem;
+}
+
+.editor-preview,
+.editor-preview-side {
+  background: var(--hx-bg);
+  color: var(--hx-text);
+}
+
+.editor-preview-side {
+  border-color: var(--hx-line);
+}
+
+.editor-preview pre,
+.editor-preview-side pre {
+  border: 1px solid var(--hx-line);
+  background: var(--hx-panel);
+  color: var(--hx-text);
+}
+
+.editor-preview table td,
+.editor-preview table th,
+.editor-preview-side table td,
+.editor-preview-side table th {
+  border-color: var(--hx-line);
+}
+
+.CodeMirror-fullscreen {
+  background: var(--hx-bg);
+}
+
+.CodeMirror-scroll {
+  background: var(--hx-panel);
 }

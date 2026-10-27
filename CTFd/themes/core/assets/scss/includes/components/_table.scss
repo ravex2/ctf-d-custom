@@ -1,22 +1,127 @@
-/* Table styles
+/* Tables
 -------------------------------------------------- */
 
-// Center text in table cells, except the first cell
+.table {
+  --bs-table-color: var(--hx-text);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--hx-line);
+  --bs-table-striped-color: var(--hx-text);
+  --bs-table-striped-bg: var(--hx-panel-2);
+  --bs-table-hover-color: var(--hx-text);
+  --bs-table-hover-bg: var(--hx-panel-2);
+  margin-bottom: 0;
+  border: 1px solid var(--hx-line);
+  color: var(--hx-text);
+  font-family: var(--hx-mono);
+  font-size: 0.84rem;
+  vertical-align: middle;
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.8rem 1rem;
+  border-bottom-width: 1px;
+  border-color: var(--hx-line);
+  box-shadow: none;
+}
+
+.table > thead {
+  background: var(--hx-panel-2);
+}
+
+.table > thead th {
+  color: var(--hx-muted);
+  font-family: var(--hx-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.table > tbody > tr:last-child > * {
+  border-bottom-width: 0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: var(--hx-panel-2);
+  color: var(--hx-text);
+}
+
+.table-hover > tbody > tr:hover > * {
+  background-color: var(--hx-panel);
+  color: var(--hx-text);
+}
+
+.table a {
+  color: var(--hx-accent);
+}
+
+.table a:hover {
+  color: var(--hx-accent-2);
+}
+
+/* Center text in table cells, except the first cell (CTFd default). */
 .table tr > :not(:first-child) {
   text-align: center;
 }
 
-// Add some default spacing to table cells
-.table > tbody > tr > td {
-  padding: 0.8rem 1rem;
+/* Scoreboard table becomes the lead panel. */
+#scoreboard .table {
+  border: 1px solid var(--hx-line);
+  background: var(--hx-panel);
 }
 
-// Add some padding from the edge of table
-.table > thead > tr > :first-child {
-  padding-left: 1rem;
+#scoreboard .table > thead th {
+  padding-block: 0.9rem;
 }
 
-// Do not wrap text in table headers
-.table > thead > th {
-  white-space: nowrap;
+#scoreboard .table tbody tr:nth-child(1) > * {
+  background: var(--hx-accent);
+  color: var(--hx-on-accent);
+}
+
+#scoreboard .table tbody tr:nth-child(2) > * {
+  background: var(--hx-panel-2);
+}
+
+#scoreboard .table tbody tr:nth-child(3) > * {
+  background: var(--hx-panel-2);
+}
+
+#scoreboard .table tbody tr:nth-child(-n + 3) > :first-child {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+#scoreboard .table tbody tr:nth-child(1) > :first-child {
+  border-left: 3px solid var(--hx-accent-2);
+}
+
+#scoreboard .table tbody tr:nth-child(1) a {
+  color: var(--hx-on-accent);
+  font-weight: 700;
+}
+
+#scoreboard .table tbody tr:nth-child(1) a:hover {
+  color: var(--hx-on-accent);
+  text-decoration: underline;
+}
+
+#score-graph {
+  min-height: 400px;
+  padding: 0.5rem;
+  border: 1px solid var(--hx-line);
+  background: var(--hx-panel);
+}
+
+/* ECharts draws dark text on a transparent canvas. Invert the canvas so the
+   chart reads correctly on the dark console panel without touching its JS. */
+[data-bs-theme="dark"] #score-graph canvas {
+  filter: invert(1) hue-rotate(180deg) saturate(0.85) brightness(0.95);
+}
+
+#solves-graph,
+#keys-pie-graph,
+#categories-pie-graph {
+  min-height: 400px;
 }

@@ -1,31 +1,44 @@
-/* Sticky footer styles
+/* Footer
 -------------------------------------------------- */
+
 html {
-  position: relative;
+  position: static;
   min-height: 100%;
 }
 
 main {
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
+  margin-bottom: 0;
 }
 
 .footer {
-  position: absolute;
-
-  /* prevent scrollbars from showing on pages that don't use the full page height */
-  bottom: 1px;
-
+  position: static;
+  bottom: auto;
+  z-index: auto;
+  flex-shrink: 0;
   width: 100%;
+  height: auto;
+  margin-top: 0;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--hx-line);
+  background: var(--hx-bg-2);
+  color: var(--hx-muted);
+  font-family: var(--hx-mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-  /* Set the fixed height of the footer here */
-  height: 60px;
+.footer a {
+  color: var(--hx-muted);
+}
 
-  /* Vertically center the text there */
-  line-height: 60px;
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--hx-accent);
+  text-decoration: none;
+}
 
-  /* Avoid covering things */
-  z-index: -20;
-
-  /*background-color: #f5f5f5;*/
+.footer .text-muted {
+  color: var(--hx-muted) !important;
 }

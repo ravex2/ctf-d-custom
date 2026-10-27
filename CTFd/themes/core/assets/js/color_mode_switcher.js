@@ -9,8 +9,9 @@ function getPreferredTheme() {
   if (storedTheme) {
     return storedTheme;
   }
-  // Firefox with 'resistFingerprint' activated always returns light
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // D-Custom opens in the dark console theme by default.
+  // The navbar toggle still lets the user choose light mode if they want.
+  return "dark";
 }
 
 /**

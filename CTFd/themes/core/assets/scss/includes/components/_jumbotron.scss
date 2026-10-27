@@ -1,22 +1,62 @@
-/* Jumbotron styles
+/* Page header / jumbotron
 -------------------------------------------------- */
 
-// Move down content because we have a fixed navbar that is 3.5rem tall
-main {
-  padding-top: 3.5rem;
-}
-
 .jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-
-  background-color: var(--bs-dark);
-  color: var(--bs-white);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  border-bottom: 1px solid var(--hx-line);
+  background: var(--hx-bg-2);
+  color: var(--hx-text);
+  text-align: left;
 }
 
-@media (min-width: 576px) {
-  .jumbotron {
-    padding: 4rem 2rem;
+.jumbotron::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, var(--hx-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hx-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.jumbotron .container {
+  position: relative;
+  z-index: 1;
+  font-family: var(--hx-mono);
+}
+
+.jumbotron h1 {
+  margin: 0;
+  font-family: var(--hx-mono);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.jumbotron h1::before {
+  content: "> ";
+  color: var(--hx-accent);
+}
+
+.jumbotron h1::after {
+  content: "_";
+  color: var(--hx-accent);
+  animation: hx-blink 1.2s steps(1) infinite;
+}
+
+.jumbotron h2,
+.jumbotron h3 {
+  font-family: var(--hx-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jumbotron h1::after {
+    animation: none;
   }
 }

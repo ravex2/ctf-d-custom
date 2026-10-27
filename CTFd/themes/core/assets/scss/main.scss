@@ -1,5 +1,53 @@
 @use "bootstrap/scss/bootstrap" as * with (
-  $info: #5c728f
+  $primary: #ffb020,
+  $secondary: #6f8294,
+  $success: #3ddc84,
+  $info: #5ab6ff,
+  $warning: #ffb020,
+  $danger: #ff5c5c,
+  $light: #f3efe4,
+  $dark: #0b1016,
+  $body-bg: #f3efe4,
+  $body-color: #11161b,
+  $font-family-base: (
+    "Lato",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif,
+  ),
+  $font-family-monospace: (
+    ui-monospace,
+    "SFMono-Regular",
+    "Cascadia Code",
+    "Roboto Mono",
+    Menlo,
+    Consolas,
+    monospace,
+  ),
+  $headings-font-family: (
+    ui-monospace,
+    "SFMono-Regular",
+    "Cascadia Code",
+    "Roboto Mono",
+    Menlo,
+    Consolas,
+    monospace,
+  ),
+  $headings-font-weight: 600,
+  $border-radius: 0,
+  $border-radius-sm: 0,
+  $border-radius-lg: 0,
+  $border-radius-xl: 0,
+  $border-radius-xxl: 0,
+  $enable-shadows: false,
+  $enable-gradients: false,
+  $link-color: #9a5b00,
+  $link-hover-color: #6f4100,
+  $link-decoration: none,
+  $link-hover-decoration: none,
+  $border-color: #cdc5b2,
+  $table-border-color: #cdc5b2
 );
 
 @use "includes/components/table";
@@ -17,39 +65,5 @@
 @use "includes/icons/award-icons";
 @use "includes/icons/flag-icons";
 
-h1,
-h2 {
-  font-weight: 500;
-  letter-spacing: 2px;
-}
-
-a {
-  text-decoration: none !important;
-}
-
-blockquote {
-  border-left: 4px solid $secondary;
-  padding-left: 15px;
-}
-
-input,
-select {
-  padding: 0.6rem !important;
-  height: auto !important;
-}
-
-.fa-spin.spinner {
-  text-align: center;
-  opacity: 0.5;
-}
-
-.badge-notification {
-  vertical-align: top;
-  margin-left: -1.5em;
-  font-size: 50%;
-}
-
-.form-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
-  background-size: 8px 10px;
-}
+/* The theme layer comes last so it can override the stock component partials. */
+@use "includes/theme";
